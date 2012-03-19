@@ -235,7 +235,7 @@ class _XMLTestResult(_TextTestResult):
             _XMLTestResult._report_output(test_runner, testsuite, doc)
             xml_content = doc.toprettyxml(indent='\t', encoding="utf-8")
             
-            if type(test_runner.output) is str:
+            if type(test_runner.output) in (str, unicode):
                 report_file = file('%s%sTEST-%s.xml' % \
                     (test_runner.output, os.sep, suite), 'w')
                 try:
